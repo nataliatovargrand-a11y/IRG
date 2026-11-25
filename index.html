@@ -90,19 +90,31 @@ nav.main a[aria-current="page"]{color:var(--night-fg);box-shadow:inset 0 -2px 0 
 
 /* bands */
 .night{background:var(--night);color:var(--night-fg)}
-.band{padding-block:clamp(56px,8vw,104px)}
+.night.band,.night.band-tight,footer{border-top:1px solid transparent;border-image:linear-gradient(90deg,transparent,#C3CBD5 30%,#E4E8ED 50%,#9AA4B1 70%,transparent) 1}
+.silver{background:linear-gradient(120deg,#F7F9FB 0%,#D5DBE2 45%,#E4E8ED 70%,#C3CBD5 100%);color:#0B1220}
+.night .aud div{background:var(--night-2);border-color:var(--night-line)}
+.night .aud p{color:var(--night-muted)}
+.night .aud h3::before{content:"";display:block;width:28px;height:2px;margin-bottom:12px;background:linear-gradient(90deg,#F7F9FB,#9AA4B1)}
+.proof strong{background:linear-gradient(180deg,#F7F9FB 0%,#C3CBD5 60%,#9AA4B1 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
+.strip{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
+.shot{margin:0;position:relative;border-radius:10px;overflow:hidden;border:1px solid var(--night-line);background:var(--night-2)}
+.shot img{display:block;width:100%;height:auto;aspect-ratio:3/2;object-fit:cover;max-width:100%}
+.shot figcaption{position:absolute;inset:auto 0 0 0;padding:28px 14px 12px;background:linear-gradient(0deg,rgba(6,14,26,.92),transparent);font-size:.85rem;display:flex;flex-direction:column;gap:2px}
+.shot figcaption span{font-family:var(--f-mono);font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:#C3CBD5}
+@media (max-width:860px){.strip{grid-template-columns:repeat(4,72%);overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:8px}.shot{scroll-snap-align:start}}
+.band{padding-block:clamp(48px,6vw,84px)}
 .band-tight{padding-block:clamp(40px,6vw,72px)}
 .alt{background:var(--surface);border-block:1px solid var(--line)}
 .stack{display:flex;flex-direction:column;gap:18px}
 
 /* hero */
 .hero{position:relative;isolation:isolate;overflow:hidden}
-.hero::before{content:"";position:absolute;inset:0;z-index:-2;background:url("img/hero-bg.jpg") center/cover no-repeat;opacity:.55;filter:saturate(.8)}
-.hero::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(100deg,rgba(10,26,47,.92) 0%,rgba(10,26,47,.7) 45%,rgba(18,53,91,.45) 100%),linear-gradient(0deg,var(--night) 0%,transparent 30%)}
+.hero::before{content:"";position:absolute;inset:0;z-index:-2;background:url("img/hero-bg.jpg") center/cover no-repeat;opacity:.7;filter:saturate(.85)}
+.hero::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(100deg,rgba(10,26,47,.92) 0%,rgba(10,26,47,.62) 45%,rgba(18,53,91,.25) 100%),linear-gradient(0deg,var(--night) 0%,transparent 30%)}
 .hero .hero-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);gap:48px;align-items:center;padding-block:clamp(48px,7vw,96px)}
 .hero h1 em{font-style:normal;color:var(--accent-hi)}
 .hero-ctas{display:flex;gap:12px;flex-wrap:wrap;margin-top:8px}
-.plan{background:var(--night-2);border:1px solid var(--night-line);border-radius:10px;padding:18px;min-width:0}
+.plan{background:rgba(12,30,56,.38);-webkit-backdrop-filter:blur(8px) saturate(1.2);backdrop-filter:blur(8px) saturate(1.2);border:1px solid rgba(213,219,226,.22);box-shadow:0 20px 60px rgba(0,0,0,.35);border-radius:10px;padding:18px;min-width:0}
 .plan svg{width:100%;height:auto;display:block}
 .plan-legend{display:flex;flex-wrap:wrap;gap:6px 16px;margin-top:12px;font-family:var(--f-mono);font-size:.7rem;color:var(--night-muted);letter-spacing:.04em}
 .plan-legend span{display:inline-flex;align-items:center;gap:6px}
@@ -360,6 +372,18 @@ footer a:hover{color:var(--night-fg)}
     </div>
   </div>
 
+  <div class="band night">
+    <div class="wrap">
+      <div class="sec-head"><div class="stack"><span class="eyebrow" data-es="Instalaciones recientes">Recent installs</span><h2 data-es="Trabajo que se ve. Y que no se nota.">Work you can see. And work you can't.</h2></div><span class="tbd" data-es="◆ fotos de referencia, reemplazar con sus proyectos">◆ stand-in photos, replace with your projects</span></div>
+      <div class="strip">
+        <figure class="shot"><img src="img/install-panel.jpg" alt="Smart home touch panel on a living room wall" loading="lazy"><figcaption><span data-es="Automatización">Automation</span><b data-es="Panel de control, Coral Gables">Control panel, Coral Gables</b></figcaption></figure>
+        <figure class="shot"><img src="img/install-camera.jpg" alt="Outdoor security camera under a roof eave" loading="lazy"><figcaption><span data-es="Seguridad">Security</span><b data-es="Cámaras 4K, Boca Raton">4K cameras, Boca Raton</b></figcaption></figure>
+        <figure class="shot"><img src="img/install-theater.jpg" alt="Private home theater with reclining seats" loading="lazy"><figcaption><span data-es="Cine en casa">Home theater</span><b data-es="Sala de 12 butacas, Naples">12-seat room, Naples</b></figcaption></figure>
+        <figure class="shot"><img src="img/install-rack.jpg" alt="Organized network rack with blue cables" loading="lazy"><figcaption><span data-es="Redes">Networking</span><b data-es="Rack de red, Orlando">Network rack, Orlando</b></figcaption></figure>
+      </div>
+    </div>
+  </div>
+
   <div class="band alt">
     <div class="wrap">
       <div class="sec-head"><div class="stack"><span class="eyebrow" data-es="Cómo trabajamos">How we work</span><h2 data-es="Un sistema, planificado desde el plano.">One system, planned from the floor plan up.</h2></div></div>
@@ -372,7 +396,7 @@ footer a:hover{color:var(--night-fg)}
     </div>
   </div>
 
-  <div class="band">
+  <div class="band night">
     <div class="wrap">
       <div class="sec-head"><div class="stack"><span class="eyebrow" data-es="Para quién">Who we work with</span><h2 data-es="Desde una casa hasta una cartera completa.">From one home to a full portfolio.</h2></div></div>
       <div class="aud">
@@ -384,7 +408,7 @@ footer a:hover{color:var(--night-fg)}
     </div>
   </div>
 
-  <div class="night band-tight cta">
+  <div class="silver band-tight cta">
     <div class="wrap">
       <h2 data-es="¿Construye, remodela o simplemente quiere dormir tranquilo?">Building, renovating, or just want to sleep easier?</h2>
       <a class="btn btn-primary" href="#contact" data-es="Solicitar una cotización">Request a quote</a>
